@@ -2,8 +2,7 @@ VERSION 5.00
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
-Object = "{60CC5D62-2D08-11D0-BDBE-00AA00575603}#1.0#0"; "SysTray.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Begin VB.Form Form1 
    BorderStyle     =   0  'None
    Caption         =   "快速打字"
@@ -73,15 +72,13 @@ Begin VB.Form Form1
       Tab(0).Control(8).Enabled=   0   'False
       Tab(0).Control(9)=   "Timer5"
       Tab(0).Control(9).Enabled=   0   'False
-      Tab(0).Control(10)=   "cSysTray1"
+      Tab(0).Control(10)=   "Command7"
       Tab(0).Control(10).Enabled=   0   'False
-      Tab(0).Control(11)=   "Command7"
+      Tab(0).Control(11)=   "Timer6"
       Tab(0).Control(11).Enabled=   0   'False
-      Tab(0).Control(12)=   "Timer6"
+      Tab(0).Control(12)=   "Timer7"
       Tab(0).Control(12).Enabled=   0   'False
-      Tab(0).Control(13)=   "Timer7"
-      Tab(0).Control(13).Enabled=   0   'False
-      Tab(0).ControlCount=   14
+      Tab(0).ControlCount=   13
       TabCaption(1)   =   "预览"
       TabPicture(1)   =   "Form1.frx":08E6
       Tab(1).ControlEnabled=   0   'False
@@ -119,15 +116,6 @@ Begin VB.Form Form1
          TabIndex        =   28
          Top             =   3120
          Width           =   1575
-      End
-      Begin SysTrayCtl.cSysTray cSysTray1 
-         Left            =   4200
-         Top             =   3120
-         _ExtentX        =   900
-         _ExtentY        =   900
-         InTray          =   -1  'True
-         TrayIcon        =   "Form1.frx":091E
-         TrayTip         =   "快速打字"
       End
       Begin VB.Timer Timer5 
          Enabled         =   0   'False
@@ -397,7 +385,7 @@ Begin VB.Form Form1
       End
    End
    Begin VB.Label Label5 
-      Caption         =   "   快速打字V2.1.1"
+      Caption         =   "   快速打字V2.5"
       Height          =   255
       Left            =   1800
       TabIndex        =   27
@@ -407,21 +395,21 @@ Begin VB.Form Form1
    Begin VB.Image Image3 
       Height          =   480
       Left            =   1320
-      Picture         =   "Form1.frx":11F8
+      Picture         =   "Form1.frx":091E
       Top             =   0
       Width           =   480
    End
    Begin VB.Image Image2 
       Height          =   315
       Left            =   3840
-      Picture         =   "Form1.frx":1AC2
+      Picture         =   "Form1.frx":11E8
       Top             =   0
       Width           =   480
    End
    Begin VB.Image Image1 
       Height          =   330
       Left            =   4320
-      Picture         =   "Form1.frx":1DBA
+      Picture         =   "Form1.frx":14E0
       Top             =   0
       Width           =   705
    End
@@ -474,13 +462,6 @@ Command5.Enabled = True
 StatusBar1.SimpleText = "打字已暂停"
 End Sub
 
-Private Sub cSysTray1_MouseDblClick(Button As Integer, Id As Long)
-Me.WindowState = 0
-time = 1
-Sleep 300
-Me.Visible = True
-Timer3.Enabled = True
-End Sub
 
 Private Sub Form_Load()
 Dim XX As Long
